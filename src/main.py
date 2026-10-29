@@ -1,13 +1,24 @@
 import pygame
+from random import randint
 from math import sqrt
 
 
-pontos = [
-	(100, 150),
-	(180, 200),
-	(300, 100),
-	(350, 280),
-]
+LARGURA_MAPA = 800
+ALTURA_MAPA = 600
+MARGEM_PONTO = 10
+
+
+def gerar_pontos(quantidade):
+	return [
+		(
+			randint(MARGEM_PONTO, LARGURA_MAPA - MARGEM_PONTO),
+			randint(MARGEM_PONTO, ALTURA_MAPA - MARGEM_PONTO),
+		)
+		for _ in range(quantidade)
+	]
+
+
+pontos = gerar_pontos(4)
 
 
 def distancia_euclidiana(ponto1, ponto2):
