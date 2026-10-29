@@ -1,4 +1,5 @@
 import pygame
+from math import sqrt
 
 
 pontos = [
@@ -7,6 +8,12 @@ pontos = [
 	(300, 100),
 	(350, 280),
 ]
+
+
+def distancia_euclidiana(ponto1, ponto2):
+	x1, y1 = ponto1
+	x2, y2 = ponto2
+	return sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
 
 
 def mostrar_mapa(pontos, largura=36, altura=15):
