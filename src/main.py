@@ -1,11 +1,7 @@
-import pygame
 from math import isclose
 
 from algoritmos import dividir_conquistar, forca_bruta
 from pontos import gerar_pontos
-
-
-pontos = gerar_pontos(4)
 
 
 def mostrar_mapa(pontos, largura=36, altura=15):
@@ -37,6 +33,8 @@ def mostrar_mapa(pontos, largura=36, altura=15):
 	for indice, ponto in enumerate(pontos):
 		marcador = identificadores[indice] if indice < len(identificadores) else "*"
 		print(f"{marcador}: {ponto}")
+
+
 def comparar_algoritmos(pontos):
 	resultado_forca_bruta = forca_bruta(pontos)
 	resultado_dividir_conquistar = dividir_conquistar(pontos)
@@ -55,7 +53,27 @@ def comparar_algoritmos(pontos):
 		print("Os algoritmos encontraram a mesma distancia minima.")
 	else:
 		print("Os algoritmos encontraram distancias diferentes.")
+def ler_quantidade_pontos():
+	while True:
+		try:
+			quantidade = int(input("Quantos pontos deseja gerar? "))
+		except ValueError:
+			print("Digite um numero inteiro.")
+			continue
+
+		if quantidade < 2:
+			print("Informe pelo menos dois pontos.")
+			continue
+
+		return quantidade
 
 
-mostrar_mapa(pontos)
-comparar_algoritmos(pontos)
+def main():
+	quantidade = ler_quantidade_pontos()
+	pontos = gerar_pontos(quantidade)
+	mostrar_mapa(pontos)
+	comparar_algoritmos(pontos)
+
+
+if __name__ == "__main__":
+	main()
