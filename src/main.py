@@ -1,30 +1,11 @@
 import pygame
-from random import randint
-from math import sqrt
+from math import isclose
 
-
-LARGURA_MAPA = 800
-ALTURA_MAPA = 600
-MARGEM_PONTO = 10
-
-
-def gerar_pontos(quantidade):
-	return [
-		(
-			randint(MARGEM_PONTO, LARGURA_MAPA - MARGEM_PONTO),
-			randint(MARGEM_PONTO, ALTURA_MAPA - MARGEM_PONTO),
-		)
-		for _ in range(quantidade)
-	]
+from algoritmos import dividir_conquistar, forca_bruta
+from pontos import gerar_pontos
 
 
 pontos = gerar_pontos(4)
-
-
-def distancia_euclidiana(ponto1, ponto2):
-	x1, y1 = ponto1
-	x2, y2 = ponto2
-	return sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
 
 
 def mostrar_mapa(pontos, largura=36, altura=15):
@@ -56,6 +37,25 @@ def mostrar_mapa(pontos, largura=36, altura=15):
 	for indice, ponto in enumerate(pontos):
 		marcador = identificadores[indice] if indice < len(identificadores) else "*"
 		print(f"{marcador}: {ponto}")
+def comparar_algoritmos(pontos):
+	resultado_forca_bruta = forca_bruta(pontos)
+	resultado_dividir_conquistar = dividir_conquistar(pontos)
+
+	if resultado_forca_bruta is None:
+		print("Sao necessarios pelo menos dois pontos.")
+		return
+
+	print(f"Distancia minima (forca bruta): {resultado_forca_bruta[2]:.2f}")
+	print(
+		"Distancia minima (dividir e conquistar): "
+		f"{resultado_dividir_conquistar[2]:.2f}"
+	)
+
+	if isclose(resultado_forca_bruta[2], resultado_dividir_conquistar[2]):
+		print("Os algoritmos encontraram a mesma distancia minima.")
+	else:
+		print("Os algoritmos encontraram distancias diferentes.")
 
 
 mostrar_mapa(pontos)
+comparar_algoritmos(pontos)
