@@ -1,29 +1,34 @@
-# G41_Dividir-e-Conquistar_PA-26.2
+# Space Rescue
 
-O projeto...
+Jogo visual em Pygame para localizar os dois sinais de emergencia mais proximos
+em um mapa espacial. A busca usa o algoritmo de dividir e conquistar
+implementado no projeto.
 
-## Vídeo
+## Executar
 
-Link do vídeo [aqui](https://youtu.be).
+Na raiz do repositorio, instale a dependencia e inicie o jogo:
 
-## Screenshot
+```bash
+python -m pip install -r requirements.txt
+python src/main.py
+```
 
-![Print do jogo.](assets/print.png)
+No Windows, tambem e possivel criar e ativar um ambiente virtual antes de
+instalar as dependencias:
 
-## Como o jogo funciona
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python src\main.py
+```
 
-## Como executar
+## Controles
 
-1. Crie um ambiente virtual (opcional, mas recomendado):
-   ```bash
-   python -m venv .venv
-   .venv\Scripts\activate
-   ```
-2. Instale as dependências:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Execute o jogo:
-   ```bash
-   python game.py
-   ```
+- **Novo mapa** ou **N**: gera outro mapa com a mesma quantidade de sinais.
+- **Buscar par mais proximo** ou **Espaco**: executa a busca e destaca os dois
+  sinais mais proximos, a linha entre eles e a distancia calculada.
+- **Reiniciar** ou **R**: restaura o mapa inicial.
+- **Esc**: fecha o jogo.
+
+Os sinais sao gerados dentro do setor de resgate e identificados por numeros.
