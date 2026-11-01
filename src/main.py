@@ -77,11 +77,11 @@ def _desenhar_mapa(tela, pontos, resultado, fonte, fonte_pequena):
 		tela.blit(rotulo, (posicao[0] + 10, posicao[1] - 14))
 
 	titulo = fonte.render("SETOR DE RESGATE", True, COR_TEXTO)
-	tela.blit(titulo, (AREA_MAPA.left, 76))
+	tela.blit(titulo, (AREA_MAPA.left, 90))
 	legenda = fonte_pequena.render(
 		f"{len(pontos)} sinais de emergencia", True, COR_TEXTO_SUAVE
 	)
-	tela.blit(legenda, (AREA_MAPA.right - legenda.get_width(), 80))
+	tela.blit(legenda, (AREA_MAPA.right - legenda.get_width(), 92))
 
 
 def _desenhar_botao(tela, retangulo, rotulo, fonte, mouse_posicao):
@@ -152,7 +152,7 @@ def _desenhar_painel(
 	painel_titulo = fonte.render("CENTRAL DE COMANDO", True, COR_CIANO)
 	tela.blit(painel_titulo, (774, 138))
 	tela.blit(
-		fonte_pequena.render("Sinais no mapa:", True, COR_TEXTO_SUAVE), (814, 196)
+		fonte_pequena.render("Pontos:", True, COR_TEXTO_SUAVE), (814, 196)
 	)
 	_desenhar_botao(tela, BOTAO_DIMINUIR, "-", fonte, mouse_posicao)
 	_desenhar_botao(tela, BOTAO_AUMENTAR, "+", fonte, mouse_posicao)
