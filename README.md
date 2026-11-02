@@ -1,12 +1,16 @@
-# Space Rescue
+# G41_Dividir-e-Conquistar_PA-26.2 
 
-Jogo em Pygame para encontrar os dois sinais de emergência mais próximos em um
+O Space Rescue é um jogo em Pygame para encontrar os dois sinais de emergência mais próximos em um
 mapa espacial. Depois de executar a busca, selecione os dois sinais no mapa para
 confirmar o resgate e marcar pontos.
 
+## Vídeo
+
+Link do vídeo [aqui](https://youtu.be/0cYhye5-6zA).
+
 ## Demonstração
 
-![Space Rescue: busca pelo par mais próximo e resgate concluído](assets/print.png)
+![Space Rescue](assets/print.png)
 
 ## Como executar
 
